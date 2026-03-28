@@ -1,9 +1,20 @@
+// Módulo de formulario - add-task-form
+// Módulo de listado - list-tasks
+// Módulo de eliminación - delete-task
+// Módulo de edición - edit-task
+// Validación de entrada - fix-empty-input
+
 const form = document.getElementById('task-form');
 const input = document.getElementById('task-input');
 const list = document.getElementById('task-list');
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
+
+  if (input.value.trim() === '') {
+    alert('La tarea no puede estar vacía.');
+    return;
+  }
 
   const li = document.createElement('li');
   li.textContent = input.value;
